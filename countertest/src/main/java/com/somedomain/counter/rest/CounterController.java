@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.ACCEPTED;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
@@ -49,7 +48,7 @@ public class CounterController {
         try {
             CounterDTO outcome = counterService.bumpValue(input.getName());
             return new ResponseEntity<>(new CounterOperationResult(outcome),
-                                        ACCEPTED);
+                                        OK);
         }
         catch (Exception e) {
             return getErrorResponse(e);
